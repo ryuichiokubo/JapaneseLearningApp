@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,16 +12,19 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
-		ActionBar.TabListener {
+		ActionBar.TabListener, OnClickListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -37,6 +41,9 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	ViewPager mViewPager;
 
+	// XXX correct?
+	private static MainActivity self;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,6 +83,9 @@ public class MainActivity extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+	
+	    // XXX
+	    self = this;
 	}
 
 	@Override
@@ -167,8 +177,22 @@ public class MainActivity extends FragmentActivity implements
 			//		.findViewById(R.id.section_label);
 			//dummyTextView.setText(Integer.toString(getArguments().getInt(
 			//		ARG_SECTION_NUMBER)));
+			
+		    // Capture our button from layout
+		    ImageView image = (ImageView)rootView.findViewById(R.id.ImageView01); // XXX this is null!!
+		    // Register the onClick listener with the implementation above
+		    image.setOnClickListener(self);
+		    
 			return rootView;
 		}
 	}
 
+
+	    public void onClick(View v) {
+	      // do something when the button is clicked
+	    	Log.i("@@@@@@@@", "click");
+	    	Intent intent = new Intent(self, StoryActivity.class);
+	    	startActivity(intent);
+	    }
+	
 }
