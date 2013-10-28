@@ -2,11 +2,17 @@ package com.ryuichiokubo.japaneselearningapp;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
-public class StoryActivity extends Activity {
+public class StoryActivity extends Activity implements OnClickListener {
+
+	private static final String TAG = "StoryActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +20,14 @@ public class StoryActivity extends Activity {
 		setContentView(R.layout.activity_story);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		// XXX read texts from somewhere else
+	    TextView nihongo = (TextView)findViewById(R.id.nihongo1); // XXX loop over nihongo* until null
+	    nihongo.setOnClickListener(this);
+	    TextView romaji = (TextView)findViewById(R.id.romaji1); // XXX loop until null
+	    romaji.setOnClickListener(this);
+	    TextView english = (TextView)findViewById(R.id.english1); // XXX loop until null
+	    english.setOnClickListener(this);
 	}
 
 	/**
@@ -47,6 +61,11 @@ public class StoryActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+    	Log.i(TAG, "@@@@ click" + v.getId());
 	}
 
 }

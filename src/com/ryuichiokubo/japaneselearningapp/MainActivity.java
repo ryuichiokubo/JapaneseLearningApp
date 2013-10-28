@@ -10,21 +10,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener, OnClickListener {
+	
+	private static final String TAG = "MainActivity";
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -188,11 +186,10 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 
-	    public void onClick(View v) {
-	      // do something when the button is clicked
-	    	Log.i("@@@@@@@@", "click");
-	    	Intent intent = new Intent(self, StoryActivity.class);
-	    	startActivity(intent);
-	    }
+	public void onClick(View v) {
+	  // do something when the button is clicked
+	   	Intent intent = new Intent(self, StoryActivity.class);
+	   	startActivity(intent);
+	}
 	
 }
