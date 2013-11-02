@@ -179,7 +179,7 @@ public class MainActivity extends FragmentActivity implements
 		    // Capture our button from layout
 		    ImageView image = (ImageView)rootView.findViewById(R.id.ImageView01); // XXX this is null!!
 		    // Register the onClick listener with the implementation above
-		    image.setOnClickListener(self);
+		    image.setOnClickListener(self); // XXX can use fragment's onclicklistener? or getActivity instead of self?
 		    
 			return rootView;
 		}

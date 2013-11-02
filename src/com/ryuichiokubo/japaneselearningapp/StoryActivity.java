@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
@@ -28,6 +29,9 @@ public class StoryActivity extends Activity implements OnClickListener {
 	    romaji.setOnClickListener(this);
 	    TextView english = (TextView)findViewById(R.id.english1); // XXX loop until null
 	    english.setOnClickListener(this);
+	    
+	    LinearLayout storyContainer = (LinearLayout)findViewById(R.id.storyContents);
+	    storyContainer.addView(StoryProvider.getTextComponent(this));
 	}
 
 	/**
@@ -66,6 +70,11 @@ public class StoryActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
     	Log.i(TAG, "@@@@ click" + v.getId());
+    	TextView romaji = (TextView)findViewById(R.id.romaji1);
+    	romaji.setBackgroundColor(0x66ff0000);
+    	TextView english = (TextView)findViewById(R.id.english1);
+    	english.setBackgroundColor(0x66ff0000);
+
 	}
 
 }
