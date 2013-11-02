@@ -14,6 +14,8 @@ import android.support.v4.app.NavUtils;
 public class StoryActivity extends Activity implements OnClickListener {
 
 	private static final String TAG = "StoryActivity";
+	
+	private StoryProvider provider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +24,9 @@ public class StoryActivity extends Activity implements OnClickListener {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
-		// XXX read texts from somewhere else
-	    TextView nihongo = (TextView)findViewById(R.id.nihongo1); // XXX loop over nihongo* until null
-	    nihongo.setOnClickListener(this);
-	    TextView romaji = (TextView)findViewById(R.id.romaji1); // XXX loop until null
-	    romaji.setOnClickListener(this);
-	    TextView english = (TextView)findViewById(R.id.english1); // XXX loop until null
-	    english.setOnClickListener(this);
-	    
 	    LinearLayout storyContainer = (LinearLayout)findViewById(R.id.storyContents);
-	    storyContainer.addView(StoryProvider.getTextComponent(this));
+	    provider = new StoryProvider(this);
+	    storyContainer.addView(provider.getTextComponent());
 	}
 
 	/**
@@ -70,11 +65,9 @@ public class StoryActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
     	Log.i(TAG, "@@@@ click" + v.getId());
-    	TextView romaji = (TextView)findViewById(R.id.romaji1);
-    	romaji.setBackgroundColor(0x66ff0000);
-    	TextView english = (TextView)findViewById(R.id.english1);
-    	english.setBackgroundColor(0x66ff0000);
-
+    	for (TextView view: provider.effectViews) {
+    		view.setBackgroundColor(0x66ff0000);
+    	}
 	}
 
 }

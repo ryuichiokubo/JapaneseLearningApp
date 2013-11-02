@@ -17,100 +17,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/chapterTitle"
-        android:layout_below="@+id/imageView1"
-        android:orientation="vertical" >
-    
-    <LinearLayout
         android:id="@+id/storyContents"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/chapterTitle"
-        android:orientation="vertical" >
-   
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="34dp"  >    
-        
-    <TextView
-        android:id="@+id/textView1_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="リュウとケンは" />
-
-    <TextView
-        android:id="@+id/nihongo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#b7d9ed"
-        android:text="旅行" />
-    
-    <TextView
-        android:id="@+id/textView1_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="をしています。" />
-    
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="2dp"  >    
-    
-    <TextView
-        android:id="@+id/textView2_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ryu to Ken wa " />
-
-    <TextView
-        android:id="@+id/romaji1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ryokou" />
-
-    <TextView
-        android:id="@+id/textView2_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" o shiteimasu." />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="2dp"  >    
-    
-    <TextView
-        android:id="@+id/textView3_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ryu and Ken are " />
-
-    <TextView
-        android:id="@+id/english1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="traveling" />
-
-    <TextView
-        android:id="@+id/textView3_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="." />
-
-    </LinearLayout>
-        </LinearLayout>
-    
-</LinearLayout>
+        android:layout_below="@+id/imageView1"
+        android:orientation="vertical" >    
+	</LinearLayout>
 
     <ImageView
         android:id="@+id/imageView1"
